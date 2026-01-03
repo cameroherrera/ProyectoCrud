@@ -1,45 +1,117 @@
-<form id="pensionadoForm" class="form">
-  <input type="hidden" id="pensionadoId" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=
+    , initial-scale=1.0"/>
+    <title>Registro Pensionados IMSS</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
 
-  <label class="field">
-    <span>Nombre completo *</span>
-    <input id="nombre" type="text" maxlength="80" required placeholder="Ej. María López Hernández" />
-  </label>
+  <header class="header">
+    <div class="container header__inner">
+      <h1 class="logo">Gestor de Tareas</h1>
+      <nav class="nav">
+        <a href="#crear">Crear</a>
+        <a href="#ver">Ver</a>
+      </nav>
+    </div>
+  </header>
 
-  <label class="field">
-    <span>CURP *</span>
-    <input id="curp" type="text" maxlength="18" required placeholder="18 caracteres" />
-  </label>
+   <main class="container main">
+    <!-- CREATE / UPDATE -->
+    <section id="crear" class="card">
+      <h2 id="formTitle">Nuevo Registro</h2>
 
-  <label class="field">
-    <span>NSS *</span>
-    <input id="nss" type="text" maxlength="11" required placeholder="11 dígitos" />
-  </label>
+        <form id="pensionadoForm" class="form">
+            <input type="hidden" id="pensionadoId" />
 
-  <label class="field">
-    <span>Teléfono *</span>
-    <input id="telefono" type="tel" maxlength="15" required placeholder="Ej. 5512345678" />
-  </label>
+            <label class="field">
+                <span>Nombre completo *</span>
+                <input id="nombre" type="text" maxlength="80" required placeholder="Ej. María López Hernández" />
+            </label>
 
-  <label class="field">
-    <span>Fecha de nacimiento *</span>
-    <input id="fechaNacimiento" type="date" required />
-  </label>
+            <label class="field">
+                <span>CURP *</span>
+                <input id="curp" type="text" maxlength="18" required placeholder="18 caracteres" />
+            </label>
 
-  <label class="field">
-    <span>Edad (automática)</span>
-    <input id="edad" type="number" readonly placeholder="Se calcula sola" />
-  </label>
+            <label class="field">
+                <span>NSS *</span>
+                <input id="nss" type="text" maxlength="11" required placeholder="11 dígitos" />
+            </label>
 
-  <label class="field">
-    <span>Estado *</span>
-    <input id="estado" type="text" maxlength="40" required placeholder="Ej. Oaxaca" />
-  </label>
+            <label class="field">
+                <span>Teléfono *</span>
+                <input id="telefono" type="tel" maxlength="15" required placeholder="Ej. 5512345678" />
+            </label>
 
-  <div class="actions">
-    <button type="submit" class="btn btn--primary" id="submitBtn">Guardar</button>
-    <button type="button" class="btn" id="cancelEditBtn" hidden>Cancelar edición</button>
-  </div>
+            <label class="field">
+                <span>Fecha de nacimiento *</span>
+                <input id="fechaNacimiento" type="date" required />
+            </label>
 
-  <p class="hint" id="formHint"></p>
-</form>
+            <label class="field">
+                <span>Edad (automática)</span>
+                <input id="edad" type="number" readonly placeholder="Se calcula sola" />
+            </label>
+
+            <label class="field">
+                <span>Estado *</span>
+                <input id="estado" type="text" maxlength="40" required placeholder="Ej. Oaxaca" />
+            </label>
+
+            <div class="actions">
+                <button type="submit" class="btn btn--primary" id="submitBtn">Guardar</button>
+                <button type="button" class="btn" id="cancelEditBtn" hidden>Cancelar edición</button>
+            </div>
+
+            <p class="hint" id="formHint"></p>
+        </form>
+    </section>
+
+    <!-- READ + FILTER -->
+    <section id="ver" class="card">
+      <div class="toolbar">
+        <h2>Tareas</h2>
+
+        <div class="toolbar__right">
+          <input id="search" class="input" type="search" placeholder="Buscar por título..." />
+          <select id="filterStatus" class="input">
+            <option value="ALL">Todas</option>
+            <option value="Pendiente">Pendiente</option>
+            <option value="En progreso">En progreso</option>
+            <option value="Hecha">Hecha</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="meta">
+        <span id="countLabel">0 tareas</span>
+        <button class="btn btn--danger" id="clearAllBtn">Borrar todo</button>
+      </div>
+
+      <ul id="taskList" class="list"></ul>
+      <p id="emptyState" class="empty" hidden>No hay tareas aún. Crea la primera arriba.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <small>CRUD SPA • localStorage • DOM • GitHub Pages</small>
+      <small id="year"></small>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/taskService.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+
+
+
+    
+</body>
+</html>
+
