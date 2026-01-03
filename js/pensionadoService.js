@@ -12,15 +12,20 @@ class PensionadoService {
   }
 
   create(data) {
-    const item = {
-      id: crypto.randomUUID(),
-      ...data,
-      createdAt: Date.now()
-    };
-    this.items.unshift(item);
-    this._persist();
-    return item;
-  }
+  const clean = { ...data };
+  delete clean.id; // evita que null sobrescriba el UUID
+
+  const item = {
+    ...clean,
+    id: crypto.randomUUID(),
+    createdAt: Date.now()
+  };
+
+  this.items.unshift(item);
+  this._persist();
+  return item;
+}
+
 
   update(id, patch) {
     const idx = this.items.findIndex(x => x.id === id);
