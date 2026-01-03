@@ -132,3 +132,17 @@ body{
 @media (max-width: 860px){
   .main{grid-template-columns: 1fr}
 }
+
+/* Select en tema oscuro */
+select,
+select.input {
+  background-color: rgba(255,255,255,.04);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Opciones del select (en algunos navegadores sí aplica) */
+select option {
+  background-color: #0b1220; /* fondo oscuro */
+  color: #e7edf7;            /* texto claro */
+}
