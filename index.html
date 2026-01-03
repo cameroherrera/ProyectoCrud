@@ -1,0 +1,45 @@
+<form id="pensionadoForm" class="form">
+  <input type="hidden" id="pensionadoId" />
+
+  <label class="field">
+    <span>Nombre completo *</span>
+    <input id="nombre" type="text" maxlength="80" required placeholder="Ej. María López Hernández" />
+  </label>
+
+  <label class="field">
+    <span>CURP *</span>
+    <input id="curp" type="text" maxlength="18" required placeholder="18 caracteres" />
+  </label>
+
+  <label class="field">
+    <span>NSS *</span>
+    <input id="nss" type="text" maxlength="11" required placeholder="11 dígitos" />
+  </label>
+
+  <label class="field">
+    <span>Teléfono *</span>
+    <input id="telefono" type="tel" maxlength="15" required placeholder="Ej. 5512345678" />
+  </label>
+
+  <label class="field">
+    <span>Fecha de nacimiento *</span>
+    <input id="fechaNacimiento" type="date" required />
+  </label>
+
+  <label class="field">
+    <span>Edad (automática)</span>
+    <input id="edad" type="number" readonly placeholder="Se calcula sola" />
+  </label>
+
+  <label class="field">
+    <span>Estado *</span>
+    <input id="estado" type="text" maxlength="40" required placeholder="Ej. Oaxaca" />
+  </label>
+
+  <div class="actions">
+    <button type="submit" class="btn btn--primary" id="submitBtn">Guardar</button>
+    <button type="button" class="btn" id="cancelEditBtn" hidden>Cancelar edición</button>
+  </div>
+
+  <p class="hint" id="formHint"></p>
+</form>
